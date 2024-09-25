@@ -10,9 +10,13 @@ import { useState } from 'react'
 
 function App() {
 
-  const [show, setShow] = useState<boolean>(false)
+  const [show, setShow] = useState<boolean>(true)
+  const [show1, setShow1] = useState<boolean>(false)
+
+  
   const handleShow = () =>{
     setShow(!show)
+    setShow1(!show1)
   } 
 
   return (
@@ -24,10 +28,10 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<ProtectedRoute element={
                 <div className='flex'>
-                  <SideBar show={show}/>
+                  <SideBar show={show} show1={show1}/>
 
                   <div className={`${show ? 'lg:w-[85%] w-full' : 'w-full'} ml-auto`}>
-                    <Navbar  handleShow={handleShow} show={show}/>
+                    <Navbar  handleShow={handleShow} show={show} show1={show1}/>
                     <AllRoutes />
                   </div>
                 </div>
